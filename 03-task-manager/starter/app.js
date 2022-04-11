@@ -5,11 +5,13 @@ const connectDB = require('./db/connect')
 require('dotenv').config()
 
 //middleware
-app.use(express.static('./public'))
+// app.use(express.static('./public'))
 app.use(express.json())
 
 //routes
-
+app.get("/", async (req, res) => {
+    res.json({ message: "Welcome to my application ." });  
+  });
 app.use('/api/v1/tasks',tasks)
 
 const port=3000
